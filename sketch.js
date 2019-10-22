@@ -20,7 +20,7 @@ function setup() {
 
   capture = createCapture(VIDEO);
   capture.size(600, 400);
-  capture.hide();
+  capture.hide();//la mostro dopo
 
 
   // funzione 1 da webcam
@@ -38,14 +38,12 @@ function setup() {
 
 }
 
-var go = false;
+  var go = false;
 
-function ready() {
-  go = true;
-}
+  function ready() {
+  go = true;}
 
 function draw() {
-
   //text
   push();
   textAlign(CENTER, CENTER);
@@ -55,7 +53,7 @@ function draw() {
   text("PRESS ENTER TO MOVE YOUR FACE AND TO MAKE NICE COMPOSITIONS (react with the sound of your voice)", windowWidth / 2, windowHeight / 1.1);
   pop();
 
-  //funzione cam
+  //funzione webcam
   spiral.move();
   spiral.display();
   for (var i = 0; i < windowWidth; i++) {
@@ -81,7 +79,7 @@ function Spiral(_x, _y, _diameter) {
   this.x = _x;
   this.y = _y;
   this.size = _diameter;
-  this.color = 'blue';
+  // this.color = 'blue';
 
   this.start = 10;
   this.angle = 90;
@@ -89,7 +87,7 @@ function Spiral(_x, _y, _diameter) {
   this.distance = this.speed * 4;
 
   this.move = function() {
-    this.x = cos(-this.angle) * this.start;
+    this.x = cos(-this.angle) * this.start; //crea una spirale - tunnel
     this.y = sin(-this.angle) * this.start;
     this.angle -= this.speed;
     this.start = this.start - this.distance;
@@ -98,9 +96,9 @@ function Spiral(_x, _y, _diameter) {
   this.display = function() {
     translate(width / 2, height / 2);
     // fill(this.color);
-    stroke(this.color);
+    // stroke(this.color);
+    // fill(200, 30, col, 5);
     imageMode(CENTER);
-    fill(200, 30, col, 5);
     var myImage = capture.loadPixels();
     var vol = mic.getLevel();
     var col = vol * 20;
@@ -129,7 +127,6 @@ function Errors(_x, _y, _diameter) {
   this.x = _x;
   this.y = _y;
   this.size = _diameter;
-  this.color = 'blue';
 
   this.start = 2;
   this.angle = 90;
@@ -165,7 +162,6 @@ function Errors2(_x, _y, _diameter) {
   this.x = _x;
   this.y = _y;
   this.size = _diameter;
-  this.color = 'blue';
 
   this.start = 2;
   this.angle = 90;

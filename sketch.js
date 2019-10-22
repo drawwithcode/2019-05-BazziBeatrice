@@ -19,12 +19,12 @@ function setup() {
   mic.start();
 
   capture = createCapture(VIDEO);
-  capture.size(600, 400);
+  capture.size(640, 480);
   capture.hide();//la mostro dopo
 
 
   // funzione 1 da webcam
-  spiral = new Spiral(300, 150, 10);
+  spiral = new Spiral(300, 150, 150);
 
   // funzione 2
   errors = new Errors(2, 2, 2);
@@ -57,7 +57,7 @@ function draw() {
   spiral.move();
   spiral.display();
   for (var i = 0; i < windowWidth; i++) {
-    spiralTre = new Spiral(i, 400, 60);
+    spiralTre = new Spiral(i, 640, 480);
   }
 
 //funzione errore 1

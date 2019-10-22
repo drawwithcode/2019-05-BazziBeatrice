@@ -117,7 +117,7 @@ function Spiral(_x, _y, _diameter) {
       this.angle -= this.speed;
       this.start = this.start - this.distance;
     }
-    image(myImage, this.x, this.y, this.size + col);
+    image(myImage, this.x, this.y, this.size);
     console.log(vol);
   }
 
